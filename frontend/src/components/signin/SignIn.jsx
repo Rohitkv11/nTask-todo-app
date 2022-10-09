@@ -17,6 +17,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 const theme = createTheme();
 
+//formik validation
 const validate = (values) => {
   const errors = {};
 
@@ -36,12 +37,14 @@ const validate = (values) => {
 const SignIn = () => {
   const navigate = useNavigate();
 
+  //error generator
   const generateError = (error) => {
     toast.error(error, {
       position: "bottom-right",
     });
   };
 
+  //formik validation
   const formik = useFormik({
     initialValues: {
       email: "",

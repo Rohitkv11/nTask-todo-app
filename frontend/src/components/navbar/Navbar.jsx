@@ -4,8 +4,6 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
@@ -13,15 +11,15 @@ export const Navbar = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-      const loggedInUser = localStorage.getItem("AuthToken")
-      if(!loggedInUser){
-        navigate('/')
-      }else{
-        navigate('/home')
-      }
-  }, [navigate])
-  
+    const loggedInUser = localStorage.getItem("AuthToken");
+    if (!loggedInUser) {
+      navigate("/");
+    } else {
+      navigate("/home");
+    }
+  }, [navigate]);
 
+  //logout
   const onLogout = () => {
     console.log("kkkkkkkkkk");
     localStorage.removeItem("AuthToken");
@@ -29,19 +27,10 @@ export const Navbar = () => {
   };
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar sx={{backgroundColor:"#051b34"}} position="static">
+      <AppBar sx={{ backgroundColor: "#051b34" }} position="static">
         <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            News
+            nTask
           </Typography>
           <Button color="inherit" onClick={onLogout}>
             Logout
